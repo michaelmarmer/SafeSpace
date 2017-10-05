@@ -43,7 +43,12 @@
           </div>
           <br>
           <div class="modal-footer">
-            <!-- add footer later -->
+            <div class="form-group">
+              <div class="checkbox col-sm-4">
+                <!-- this is for the 'X' at the top right of the page. the '&nbsp' is code to create the 'X'-->
+                <div class="text-danger lead text-center" style="color:red;" id="statusmsg">&nbsp;</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -78,6 +83,26 @@
 
      <script>
        $('#myModal').modal('show');
+
+       function validateLogin() {
+         var x = $('#username').val();
+         if (x === null || x === "") {
+           $('#statusmsg').attr("class","errmsg").text("Username field is required.");
+           return false;
+         }
+         x = $('#password').val();
+         if (x === null || x === "") {
+           $('#statusmsg').attr("class","errmsg").text("Password field is required.");
+           return false;
+         }
+         return true;
+       }
+
+       $('#signin').click(function() {
+         if (!validateLogin()) {
+             return;
+         }
+       });
      </script>
    </body>
  </html>
