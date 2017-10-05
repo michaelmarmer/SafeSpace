@@ -21,7 +21,7 @@
         </div>
         <div class="modal-body">
           <div class="login">
-            <form action="index.php" method="post" class="form-horizontal" role="form">
+            <form action="submitlogin.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="control-label col-sm-1" for="username">Username</label>
                 <div class="col-sm-4">
@@ -54,11 +54,12 @@
       </div>
     </div>
      <style media="screen">
-        .modal-backdrop{
-          background-color: blue;
+        body{
+          background-image: url('blue-clouds-day-fluffy-53594.jpg');
         }
         .modal-content {
           background-color: gray;
+          margin-top: 10%;
         }
         .modal-header {
           color: white;
@@ -78,31 +79,10 @@
         #signin {
           background-color: black;
         }
-
      </style>
 
      <script>
        $('#myModal').modal('show');
-
-       function validateLogin() {
-         var x = $('#username').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Username field is required.");
-           return false;
-         }
-         x = $('#password').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Password field is required.");
-           return false;
-         }
-         return true;
-       }
-
-       $('#signin').click(function() {
-         if (!validateLogin()) {
-             return;
-         }
-       });
      </script>
    </body>
  </html>

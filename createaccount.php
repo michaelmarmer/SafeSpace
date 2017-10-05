@@ -102,58 +102,6 @@
      <script>
        $('#myModal').modal('show');
 
-       function passwordMatch() {
-         var x = $('#password').val();
-         var y = $('#confirmpassword').val();
-         if (x != y){
-           $('#statusmsg').attr("class","errmsg").text("Password did not match.");
-           return false;
-         }
-         return true;
-       }
-
-       function validateAccount() {
-         var x = $('#username').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Username field is required.");
-           return false;
-         }
-         x = $('#firstname').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("First Name field is required.");
-           return false;
-         }
-         x = $('#lastname').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Lame Name field is required.");
-           return false;
-         }
-         x = $('#Email').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Email field is required.");
-           return false;
-         }
-         x = $('#password').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Password field is required.");
-           return false;
-         }
-         x = $('#confirmpassword').val();
-         if (x === null || x === "") {
-           $('#statusmsg').attr("class","errmsg").text("Confirm Password field is required.");
-           return false;
-         }
-         return true;
-       }
-
-       $('#createaccount').click(function() {
-         if (!validateAccount()) {
-             return;
-         }
-         if (!passwordMatch()) {
-           return;
-         }
-       });
      </script>
    </body>
  </html>
