@@ -1,28 +1,34 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
+ <html><head><title></title></head><body>Another test</body></html>
+
 <?php
-if ($_POST('createaccount')) {
-  $username = $_POST('username');
-  $firstname = $_POST('firstname');
-  $lastname = $_POST('lastname');
-  $email = $_POST('email');
-  $password = $_POST('password');
+$host = "localhost";
+$user = "root";
+$pass = "root";
+$db = "safespace";
 
-  $servername = "Local instance 8889";
-  $username = "root";
-  $password = "root";
-  $db = "safespace";
+$conn = mysqli_connect($host, $user, $pass, $db);
+if ($conn){
+  echo "<h3>Connection Established</h3>";
+} else {
+  echo "<h3>No Connection Established</h3>";
+}
 
-  $conn = mysqli_connect($servername, $username, $password, $db);
-  if($conn){
-    echo 'connected successfully';
-  }
+if (isset($_POST['createaccount'])){
+echo "<h3>Button Test</h3>";
+$username = $_POST('username');
+$firstname = $_POST('firstname');
+$lastname = $_POST('lastname');
+$email = $_POST('email');
+$password = $_POST('password');
 
-  $sql = "INSERT INTO CreateAccount (username, firstname, lastname, email, password)
-  VALUES ('$username', '$firstname', '$lastname', '$email', '$password')";
-  $query = mysqli_query($conn, $sql)
-  if ($query){
-    echo 'data inserted successfully';
-  }
-  header("refresh:2; url=index.php");
+$sql = "INSERT INTO CreateAccount (username, firstname, lastname, email, password)
+VALUES ('$username', '$firstname', '$lastname', '$email', '$password')";
+if ($conn->query($sql) == TRUE) {
+  echo "<h3>Data inserted succesfully</h3>";
+} else {
+  echo "<h3>Data not inserted succesfully</h3>";
+}
+$conn->close();
 }
  ?>

@@ -54,15 +54,16 @@
       </div>
     </div>
      <style media="screen">
-        body{
-          background-image: url('blue-clouds-day-fluffy-53594.jpg');
+        .modal-backdrop {
+          background-image: url('clouds.jpg');
         }
-        .modal-content {
+        .modal-content{
           background-color: gray;
           margin-top: 10%;
         }
         .modal-header {
           color: white;
+          text-align: center;
         }
         .login {
           color: white;
@@ -72,9 +73,6 @@
         }
         a:hover {
           color: #7585F0;
-        }
-        .modal-header {
-          text-align: center;
         }
         #signin {
           background-color: black;

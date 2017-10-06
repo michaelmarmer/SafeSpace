@@ -21,7 +21,7 @@
         </div>
         <div class="modal-body">
           <div class="login">
-            <form action="sqlcreateaccount.php" method="post" class="form-horizontal" role="form">
+            <form action="createacclogin.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="username">Username</label>
                 <div class="col-sm-4">
@@ -29,36 +29,36 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">First Name</label>
+                <label class="control-label col-sm-2" for="firstname">First Name</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="firstname" name="firstname" placeholder="enter first name">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Last Name</label>
+                <label class="control-label col-sm-2" for="lastname">Last Name</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="lastname" name="lastname" placeholder="enter last name">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="password">Email</label>
+                <label class="control-label col-sm-2" for="email">Email</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="email" name="email" placeholder="enter email address">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Password</label>
+                <label class="control-label col-sm-2" for="password">Password</label>
                 <div class="col-sm-4">
                   <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Confirm Password</label>
+                <label class="control-label col-sm-2" for="confirmpassword">Confirm Password</label>
                 <div class="col-sm-4">
                   <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="re-enter password">
                 </div>
               </div>
-              <input type="submit" name="createaccount" value="Create Account" onclick="window.location.replace('index.php');">
+              <input type="submit" name="createaccount" value="Create Account">
             </form>
           </div>
           <br>
@@ -74,12 +74,13 @@
       </div>
     </div>
      <style media="screen">
-        .modal-backdrop{
-          background-color: blue;
-        }
-        .modal-content {
-          background-color: gray;
-        }
+         .modal-backdrop {
+           background-image: url('clouds.jpg');
+         }
+         .modal-content{
+           background-color: gray;
+           margin-top: 5%;
+         }
         .modal-header {
           color: white;
           text-align: center;
