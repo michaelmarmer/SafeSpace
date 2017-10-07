@@ -21,7 +21,7 @@
         </div>
         <div class="modal-body">
           <div class="login">
-            <form action="createacclogin.php" method="post" class="form-horizontal" role="form">
+            <form action="create_acc_submit.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="control-label col-sm-2" for="username">Username</label>
                 <div class="col-sm-4">
@@ -58,7 +58,7 @@
                   <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="re-enter password">
                 </div>
               </div>
-              <input type="submit" name="createaccount" value="Create Account">
+              <input type="submit" id="createaccount" name="createaccount" value="Create Account" onclick="window.location.replace('index.php');">
             </form>
           </div>
           <br>
@@ -87,12 +87,6 @@
         }
         .modal-body {
           color: white;
-        }
-        a {
-          color: black;
-        }
-        a:hover {
-          color: #7585F0;
         }
         #createaccount {
           background-color: black;

@@ -21,7 +21,7 @@
         </div>
         <div class="modal-body">
           <div class="login">
-            <form action="submitlogin.php" method="post" class="form-horizontal" role="form">
+            <form action="index_submit.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="control-label col-sm-1" for="username">Username</label>
                 <div class="col-sm-4">
@@ -34,7 +34,7 @@
                   <input type="password" class="form-control" id="password" name="password" placeholder="enter password">
                 </div>
               </div>
-              <button id="signin" class="btn btn-primary">Login</button>
+              <button name="signin" id="signin" class="btn btn-primary">Login</button>
             </form>
             <div class="createaccount">
               <br>
@@ -42,14 +42,15 @@
             </div>
           </div>
           <br>
+          <!--
           <div class="modal-footer">
             <div class="form-group">
               <div class="checkbox col-sm-4">
-                <!-- this is for the 'X' at the top right of the page. the '&nbsp' is code to create the 'X'-->
-                <div class="text-danger lead text-center" style="color:red;" id="statusmsg">&nbsp;</div>
+                <div class="text-danger lead text-center" style="color:red;" name="statusmessage" id="statusmessage">&nbsp;</div>
               </div>
             </div>
           </div>
+        -->
         </div>
       </div>
     </div>
@@ -74,7 +75,7 @@
         a:hover {
           color: #7585F0;
         }
-        #signin {
+        #signin{
           background-color: black;
         }
      </style>
