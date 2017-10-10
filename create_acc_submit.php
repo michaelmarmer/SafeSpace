@@ -5,6 +5,12 @@ $host = "localhost";
 $user = "root";
 $pass = "root";
 $db = "safespace";
+$username = $_POST["username"];
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$confirmpassword = $_POST["confirmpassword"];
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 /*if ($conn){
@@ -14,16 +20,23 @@ $conn = mysqli_connect($host, $user, $pass, $db);
 }*/
 
 if (isset($_POST['createaccount'])){
-  $sql = "INSERT INTO CreateAccount (username, firstname, lastname, email, password)
-  VALUES ('".$_POST["username"]."', '".$_POST["firstname"]."', '".$_POST["lastname"]."', '".$_POST["email"]."', '".$_POST["password"]."')";
-  $query = mysqli_query($conn,$sql);
-  if ($query == TRUE) {
-    echo "<h3>Account Created</h3>";
-    echo "<script>window.location.replace('index.php')</script>";
-  } else {
-    echo "<h3>Account Creation Failed</h3>";
-    echo "<script>window.location.replace('createaccount.php')</script>";
+  $fields = array($username, $firstname, $lastname, $email, $password, $confirmpassword);
+  foreach ($fields as $fieldname) {
+    if (!empty($fieldname)) {
+        $sql = "INSERT INTO CreateAccount (username, firstname, lastname, email, password)
+        VALUES ('".$username."', '".$firstname."', '".$lastname."', '".$email."', '".$password."')";
+        $query = mysqli_query($conn,$sql);
+        if ($query == TRUE) {
+          echo "<h3>Account Created</h3>";
+          echo "<script>window.location.replace('index.php')</script>";
+        } 
+    } else {
+        $_SESSION['errMsg'] = "Missing fields";
+    }
+    header("Location: createaccount.php");
+  }
+  if ($password != $confirmpassword) {
+    $_SESSION['errMsg'] = "Passwords did not match";
   }
 }
-
  ?>

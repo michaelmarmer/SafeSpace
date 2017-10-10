@@ -59,44 +59,34 @@
                 </div>
               </div>
               <input type="submit" id="createaccount" name="createaccount" value="Create Account" onclick="window.location.replace('index.php');">
+                <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+                <?php unset($_SESSION['errMsg']); ?>
             </form>
-          </div>
-          <br>
-          <div class="modal-footer">
-            <div class="form-group">
-              <div class="checkbox col-sm-4">
-                <!-- this is for the 'X' at the top right of the page. the '&nbsp' is code to create the 'X'-->
-                <div class="text-danger lead text-center" style="color:red;" id="statusmsg">&nbsp;</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-     <style media="screen">
-         .modal-backdrop {
-           background-image: url('clouds.jpg');
-         }
-         .modal-content{
-           background-color: gray;
-           margin-top: 5%;
-         }
-        .modal-header {
-          color: white;
-          text-align: center;
-        }
-        .modal-body {
-          color: white;
-        }
-        #createaccount {
-          background-color: black;
-        }
-
-     </style>
-
-     <script>
-       $('#myModal').modal('show');
-
-     </script>
    </body>
+   <style media="screen">
+       .modal-backdrop {
+         background-image: url('clouds.jpg');
+       }
+       .modal-content{
+         background-color: gray;
+         margin-top: 5%;
+       }
+      .modal-header {
+        color: white;
+        text-align: center;
+      }
+      .modal-body {
+        color: white;
+      }
+      #createaccount {
+        background-color: black;
+      }
+   </style>
+   <script>
+     $('#myModal').modal('show');
+   </script>
  </html>

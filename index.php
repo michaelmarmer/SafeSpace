@@ -35,53 +35,44 @@
                 </div>
               </div>
               <button name="signin" id="signin" class="btn btn-primary">Login</button>
-            </form>
-            <div class="createaccount">
-              <br>
-              <a href="createaccount.php">New User? Register Here</a>
-            </div>
-          </div>
-          <br>
-          <!--
-          <div class="modal-footer">
-            <div class="form-group">
-              <div class="checkbox col-sm-4">
-                <div class="text-danger lead text-center" style="color:red;" name="statusmessage" id="statusmessage">&nbsp;</div>
+              <div class="createaccount">
+                <br>
+                <a href="createaccount.php">New User? Register Here</a>
               </div>
-            </div>
+              <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+              <?php unset($_SESSION['errMsg']); ?>
+            </form>
           </div>
-        -->
         </div>
       </div>
     </div>
-     <style media="screen">
-        .modal-backdrop {
-          background-image: url('clouds.jpg');
-        }
-        .modal-content{
-          background-color: gray;
-          margin-top: 10%;
-        }
-        .modal-header {
-          color: white;
-          text-align: center;
-        }
-        .login {
-          color: white;
-        }
-        a {
-          color: black;
-        }
-        a:hover {
-          color: #7585F0;
-        }
-        #signin{
-          background-color: black;
-        }
-     </style>
-
-     <script>
-       $('#myModal').modal('show');
-     </script>
    </body>
+   <style media="screen">
+      .modal-backdrop {
+        background-image: url('clouds.jpg');
+      }
+      .modal-content{
+        background-color: gray;
+        margin-top: 10%;
+      }
+      .modal-header {
+        color: white;
+        text-align: center;
+      }
+      .login {
+        color: white;
+      }
+      a {
+        color: black;
+      }
+      a:hover {
+        color: #7585F0;
+      }
+      #signin{
+        background-color: black;
+      }
+   </style>
+   <script>
+     $('#myModal').modal('show');
+   </script>
  </html>
