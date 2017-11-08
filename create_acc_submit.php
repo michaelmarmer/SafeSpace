@@ -27,14 +27,19 @@ if (isset($_POST['createaccount'])){
          $query = mysqli_query($conn,$sql);
          $validuser = mysqli_num_rows($query);
        if ($validuser > 0) {
-         $_SESSION['errMsg'] = "User already exists.";
+         $_SESSION['errMsg'] = "User '".$username."' already exists.";
          echo "<script>window.location.replace('createaccount.php')</script>";
        }
+     } if (isset($email)) {
+        $sql = "SELECT email FROM createaccount WHERE username='".$email."'";
+        $query = mysqli_query($conn,$sql);
+        $validemail = mysqli_num_rows($query);
+      if ($validemail > 0) {
+        $_SESSION['errMsg'] = "Account with '".$email."' already exists.";
+        echo "<script>window.location.replace('createaccount.php')</script>";
+      }
      } if (isset($password)) {
-         if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%^&*-_]{8,30}$/', $password)) {
-           $_SESSION['errMsg'] = "Passwords does not meet the requirements";
-           echo "<script>window.location.replace('createaccount.php')</script>";
-         } else {
+         if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%^&*-_]{8,30}$/', $password)) {
            if ($password != $confirmpassword) {
              $_SESSION['errMsg'] = "Passwords did not match";
              echo "<script>window.location.replace('createaccount.php')</script>";
@@ -48,6 +53,9 @@ if (isset($_POST['createaccount'])){
                echo "<script>window.location.replace('createaccount.php')</script>";
              }
            }
+         } else {
+           $_SESSION['errMsg'] = "Passwords does not meet the requirements";
+           echo "<script>window.location.replace('createaccount.php')</script>";
          }
        }
    } else {

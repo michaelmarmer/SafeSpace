@@ -60,7 +60,8 @@
       }
       .modal-content{
         background-color: gray;
-        margin-top: 10%;
+        margin-top: 12.5%;
+        margin-bottom: 12.5%;
         opacity: 0.8;
       }
       .modal-header {
@@ -77,7 +78,8 @@
         color: #7585F0;
       }
       #signin{
-        background-color: black;
+        background-color: #4d88ff;
+        border-color: white;
       }
    </style>
    <script>
