@@ -6,7 +6,7 @@
  <html>
    <head>
      <meta charset="utf-8">
-     <title>SafeSpace</title>
+     <title>Account Recovery</title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,37 +20,32 @@
     <div class="modal fade"  data-backdrop="static"  id="myModal" role="dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1>Welcome to SafeSpace</h1>
+          <h3>Account Recovery</h3>
         </div>
         <div class="modal-body">
-          <div class="login">
-            <form action="index_submit.php" method="post" class="form-horizontal" role="form">
+            <form action="account_recovery_username2_submit.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
-                <label class="control-label col-sm-1" for="username">Username</label>
+                <label class="control-label col-sm-2" id="labels" for="username">New Username</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="username" name="username" placeholder="enter username">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-1" for="password">Password</label>
+                <label class="control-label col-sm-2" id="labels" for="confirmusername">Confirm Username</label>
                 <div class="col-sm-4">
-                  <input type="password" class="form-control" id="password" name="password" placeholder="enter password" data-toggle="password">
+                  <input type="text" class="form-control" id="confirmusername" name="confirmusername" placeholder="re-enter username">
                 </div>
               </div>
-              <button name="signin" id="signin" class="btn btn-primary">Login</button>
-              <div class="createaccount">
-                <br>
-                <a href="create_account.php">New User? Register Here</a>
+
+              <div class="form-group" id="buttons">
+                <button name="return" id="return" class="btn btn-primary">Back</button>
+                <button name="save" id="save" class="btn btn-primary">Save</button>
               </div>
-              <div class="accountrecovery">
-                <br>
-                <a href="account_recovery.php">Forgot Username or Password?</a>
-              </div>
+
               <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
             </form>
           </div>
-        </div>
       </div>
     </div>
    </body>
@@ -72,15 +67,19 @@
       .login {
         color: white;
       }
-      a {
-        color: black;
-      }
-      a:hover {
-        color: white;
-      }
-      #signin{
+      #save{
         background-color: #4d88ff;
         border-color: white;
+      }
+      #return{
+        background-color: #4d88ff;
+        border-color: white;
+      }
+      #buttons {
+        margin-left: 20px;
+      }
+      #labels {
+        color: white;
       }
    </style>
    <script>

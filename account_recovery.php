@@ -6,7 +6,7 @@
  <html>
    <head>
      <meta charset="utf-8">
-     <title>SafeSpace</title>
+     <title>Account Recovery</title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,36 +20,34 @@
     <div class="modal fade"  data-backdrop="static"  id="myModal" role="dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1>Welcome to SafeSpace</h1>
+          <h3>Account Recovery</h3>
         </div>
         <div class="modal-body">
-          <div class="login">
-            <form action="index_submit.php" method="post" class="form-horizontal" role="form">
+            <form action="account_recovery_submit.php" method="post" class="form-horizontal" role="form">
+
               <div class="form-group">
-                <label class="control-label col-sm-1" for="username">Username</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="username" name="username" placeholder="enter username">
+                <label class="control-label col-sm-2" id="account" for="username">I Forgot My:</label>
+                <div class="col-sm-4" id="radiobuttons">
+                    <input type="radio" name="account" value="username"> Username &nbsp;
+                    <input type="radio" name="account" value="password"> Password
                 </div>
               </div>
+
               <div class="form-group">
-                <label class="control-label col-sm-1" for="password">Password</label>
+                <label class="control-label col-sm-2" id="account" for="email">Account Email</label>
                 <div class="col-sm-4">
-                  <input type="password" class="form-control" id="password" name="password" placeholder="enter password" data-toggle="password">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="enter email">
                 </div>
               </div>
-              <button name="signin" id="signin" class="btn btn-primary">Login</button>
-              <div class="createaccount">
-                <br>
-                <a href="create_account.php">New User? Register Here</a>
+
+              <div class="form-group" id="buttons">
+                <button name="return" id="return" class="btn btn-primary">Back</button>
+                <button name="next" id="next" class="btn btn-primary">Next</button>
               </div>
-              <div class="accountrecovery">
-                <br>
-                <a href="account_recovery.php">Forgot Username or Password?</a>
-              </div>
+
               <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -72,15 +70,29 @@
       .login {
         color: white;
       }
-      a {
-        color: black;
-      }
-      a:hover {
-        color: white;
-      }
-      #signin{
+      #next{
         background-color: #4d88ff;
         border-color: white;
+      }
+      #return{
+        background-color: #4d88ff;
+        border-color: white;
+      }
+      #radiobuttons {
+        margin-top: 5px;
+        font-size: 16px;
+        color: white;
+      }
+      #buttons {
+        margin-left: 20px;
+      }
+      #account {
+        color: white;
+      }
+      input[type=radio] {
+        border: 0px;
+        width: 10%;
+        height: 1.3em;
       }
    </style>
    <script>

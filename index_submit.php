@@ -2,14 +2,10 @@
 session_start();
 $_SESSION["loggedin"] = "";
 
-$host = "localhost";
-$user = "root";
-$pass = "root";
-$db = "safespace";
+include "database_connection.php";
+
 $username = $_POST["username"];
 $password = $_POST["password"];
-
-$conn = mysqli_connect($host, $user, $pass, $db);
 
 if (isset($_POST['signin'])){
   $fields = array($username, $password);
@@ -27,7 +23,7 @@ if (isset($_POST['signin'])){
           $_SESSION['errMsg'] = "User not found.";
           echo "<script>window.location.replace('index.php')</script>";
         }
-      } 
+      }
     } else {
       $_SESSION['errMsg'] = "Invalid login. Please try again";
       echo "<script>window.location.replace('index.php')</script>";
