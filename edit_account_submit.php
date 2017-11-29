@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["loggedin"] = $username;
+$_SESSION['username'];
 
 include "database_connection.php";
 
@@ -12,9 +12,6 @@ if (isset($_POST['personal'])) {
 }
 if (isset($_POST['account'])) {
   echo "<script>window.location.replace('edit_account_info.php')</script>";
-}
-if (isset($_POST['security'])) {
-  echo "<script>window.location.replace('edit_security_info.php')</script>";
 }
 
 

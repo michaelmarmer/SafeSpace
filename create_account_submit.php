@@ -9,16 +9,6 @@ $lastname = $_POST["lastname"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $confirmpassword = $_POST["confirmpassword"];
-//need to add to code below
-$securityquestion1 = $_POST["securityquestion1"];
-$answer1 = $_POST["answer1"];
-$securityquestion2 = $_POST["securityquestion2"];
-$answer2 = $_POST["answer2"];
-$securityquestion3 = $_POST["securityquestion3"];
-$answer3 = $_POST["answer3"];
-//add to SQL statements
-//add to SQL SQL server
-//add conditional statements (if 1 question is selected, remove it from other question lists)
 
 if (isset($_POST['createaccount'])) {
   $fields = array($username, $firstname, $lastname, $email, $password, $confirmpassword);
@@ -37,9 +27,10 @@ if (isset($_POST['createaccount'])) {
       if ($validemail > 0) {
         $_SESSION['errMsg'] = "Account with '".$email."' already exists.";
       }
-     } if (isset($password)) {
-       if (empty($username) || empty($firstname) || empty($lastname) || empty($email) || empty($password) || empty($confirmpassword)
-       || empty($securityquestion1) || empty($securityquestion2) || empty($securityquestion3) || empty($answer1) || empty($answer2) || empty($answer3)) {
+     }
+
+     if (isset($password)) {
+       if (empty($username) || empty($firstname) || empty($lastname) || empty($email) || empty($password) || empty($confirmpassword)) {
          $_SESSION['errMsg'] = "Missing fields";
        } else {
          if ($password != $confirmpassword) {

@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once('database_connection.php');
  ?>
 
  <!DOCTYPE html>
@@ -45,8 +46,10 @@
                 <button name="next" id="next" class="btn btn-primary">Next</button>
               </div>
 
-              <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+              <div class="text-danger lead text-center" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
+              <div class="text-danger lead text-center" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
+              <?php unset($_SESSION['succMsg']); ?>
           </form>
         </div>
       </div>
@@ -70,14 +73,6 @@
       .login {
         color: white;
       }
-      #next{
-        background-color: #4d88ff;
-        border-color: white;
-      }
-      #return{
-        background-color: #4d88ff;
-        border-color: white;
-      }
       #radiobuttons {
         margin-top: 5px;
         font-size: 16px;
@@ -85,6 +80,8 @@
       }
       #buttons {
         margin-left: 20px;
+        background-color: #4d88ff;
+        border-color: white;
       }
       #account {
         color: white;
@@ -93,6 +90,14 @@
         border: 0px;
         width: 10%;
         height: 1.3em;
+      }
+      #errMsg {
+        color: red;
+        font-weight: 400;
+      }
+      #succMsg {
+        color: green;
+        font-weight: 400;
       }
    </style>
    <script>

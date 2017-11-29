@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["loggedin"] = $username;
+$_SESSION['username'];
 
 include "database_connection.php";
 

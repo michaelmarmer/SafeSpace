@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["loggedin"] = "";
+$_SESSION['email'];
 
 include "database_connection.php";
 
@@ -15,35 +15,58 @@ if (isset($_POST['next'])){
     if (isset($account)) {
       if ($account == "username") {
         if (isset($email)) {
-          $sql = "SELECT email FROM create_account WHERE email='".$email."'";
-          $query = mysqli_query($conn,$sql);
-          $validemail = mysqli_num_rows($query);
-            if ($validemail > 0) {
-              $_SESSION["loggedin"] = $email;
-              echo "<script>window.location.replace('account_recovery_username1.php')</script>";
-            } else {
-              echo "<script>window.location.replace('account_recovery.php')</script>";
-              $_SESSION['errMsg'] = "Email not found";
+          if(isset($_POST) & !empty($_POST)){
+            $sql = "SELECT email FROM create_account WHERE email='".$email."'";
+            $query = mysqli_query($conn,$sql);
+            $validuser = mysqli_num_rows($query);
+             if($validuser > 0){
+	               echo "Send email to user with username";
+                 $r = mysqli_fetch_assoc($query);
+                 $username = $r['username'];
+                 $to = $r['email'];
+                 $subject = "Your Recovered Username";
+                 $message = "Please use this username to login " . $username;
+                 $headers = "From : support@safespace.com";
+                 if(mail($to, $subject, $message, $headers)){
+   	               $_SESSION['succMsg'] = "An email has been sent to your registered email address";
+                  }else{
+                    $_SESSION['errMsg'] = "Failed to recover your username, try again";
+                  }
+             } else {
+               $_SESSION['succMsg'] = "An email has been sent to your registered email address";
+             }
+           }
+         }
+       }
+       if ($account == "password") {
+         if (isset($email)) {
+           if(isset($_POST) & !empty($_POST)){
+             $sql = "SELECT email FROM create_account WHERE email='".$email."'";
+             $query = mysqli_query($conn,$sql);
+             $validuser = mysqli_num_rows($query);
+              if($validuser > 0){
+ 	               echo "Send email to user with password";
+                  $r = mysqli_fetch_assoc($query);
+                  $password = $r['password'];
+                  $to = $r['email'];
+                  $subject = "Your Recovered Password";
+                  $message = "Please use this password to login " . $password;
+                  $headers = "From : support@safespace.com";
+                  if(mail($to, $subject, $message, $headers)){
+    	               $_SESSION['succMsg'] = "An email has been sent to your registered email address";
+                   }else{
+                     $_SESSION['errMsg'] = "Failed to recover your password, try again";
+                   }
+              } else {
+                $_SESSION['succMsg'] = "An email has been sent to your registered email address";
+              }
             }
           }
         }
-      }
-      if ($account == "password") {
-        if (isset($email)) {
-          $sql = "SELECT email FROM create_account WHERE email='".$email."'";
-          $query = mysqli_query($conn,$sql);
-          $validemail = mysqli_num_rows($query);
-            if ($validemail > 0) {
-              $_SESSION["loggedin"] = $email;
-              echo "<script>window.location.replace('account_recovery_password1.php')</script>";
-            } else {
-              echo "<script>window.location.replace('account_recovery.php')</script>";
-              $_SESSION['errMsg'] = "Email not found";
-            }
-          }
-        }
-      }
-}
+     }
+   }
+    echo "<script>window.location.replace('account_recovery.php')</script>";
+ }
 
 if (isset($_POST['return'])){
   echo "<script>window.location.replace('index.php')</script>";

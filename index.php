@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
  ?>
 
  <!DOCTYPE html>
@@ -46,8 +46,10 @@
                 <br>
                 <a href="account_recovery.php">Forgot Username or Password?</a>
               </div>
-              <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+              <div class="text-danger lead text-center" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
+              <div class="text-danger lead text-center" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
+              <?php unset($_SESSION['succMsg']); ?>
             </form>
           </div>
         </div>
@@ -73,7 +75,7 @@
         color: white;
       }
       a {
-        color: black;
+        color: #333333;
       }
       a:hover {
         color: white;
@@ -81,6 +83,26 @@
       #signin{
         background-color: #4d88ff;
         border-color: white;
+      }
+      #signin:focus {
+        outline: 0;
+      }
+      #signin:hover {
+        border-color:  #333333;
+        color:  #333333;
+      }
+      #signin:active {
+        background-color: #4d88ff;
+        border-color: white;
+        color: white;
+      }
+      #errMsg {
+        color: red;
+        font-weight: 400;
+      }
+      #succMsg {
+        color: green;
+        font-weight: 400;
       }
    </style>
    <script>

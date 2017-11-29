@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["loggedin"] = "";
+$_SESSION["username"] = "";
 
 include "database_connection.php";
 
@@ -16,7 +16,7 @@ if (isset($_POST['signin'])){
       $query = mysqli_query($conn,$sql);
       $validuser = mysqli_num_rows($query);
         if ($validuser > 0) {
-          $_SESSION["loggedin"] = $username;
+          $_SESSION['username'] = $username;
           echo "<script>window.location.replace('welcome.php')</script>";
         } else {
           $_SESSION['errMsg'] = "User not found.";

@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $_SESSION['username'];
  ?>
 
  <!DOCTYPE html>
@@ -15,7 +16,6 @@
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
-
    </head>
    <body>
     <div class="modal fade"  data-backdrop="static"  id="myModal" role="dialog">
@@ -59,7 +59,7 @@
                 </div>
 
               <button name="next" id="next" class="btn btn-primary">Next</button>
-              <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+              <div class="text-danger lead text-center" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
             </form>
 
@@ -88,6 +88,10 @@
       }
       #question {
         color: white;
+      }
+      #errMsg {
+        color: red;
+        font-weight: 400;
       }
    </style>
    <script>

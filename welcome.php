@@ -1,7 +1,6 @@
 <?php
   session_start();
-  $_SESSION["loggedin"] = $username;
-
+  $_SESSION['username'];
  ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="welcome" id="welcome" class="btn btn-primary">Welcome</button>
+              <button name="welcome" id="welcome" class="btn btn-primary">Welcome <?php echo $_SESSION['username']; ?></button>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <a class="dropdown-toggle form-control" id="dropdown" name="dropdown" data-toggle="dropdown">

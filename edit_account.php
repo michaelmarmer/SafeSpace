@@ -1,7 +1,6 @@
 <?php
-  session_start();
-  $_SESSION["loggedin"] = $username;
-
+session_start();
+$_SESSION['username'];
  ?>
 
 <!DOCTYPE html>
@@ -28,8 +27,7 @@
       </nav>
       <div class="form-group">
         <button name="personal" id="personal" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span><br>Edit Personal Information</button>
-        <button name="account" id="account" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span><br>Edit Account Information</button>
-        <button name="security" id="security" class="btn btn-primary"><span class="glyphicon glyphicon-lock"></span><br>Edit Security Information</button>
+        <button name="account" id="account" class="btn btn-primary"><span class="glyphicon glyphicon-lock"></span><br>Edit Account Information</button>
       </div>
     </form>
   </body>
@@ -39,7 +37,7 @@
       margin-left: 110px;
       margin-right: 10px;
       height: 685px;
-      width: 400px;
+      width: 600px;
       font-size: 30px;
       background-color: #99bbff;
       border-color: white;
@@ -49,10 +47,15 @@
       color: #333333;
       border-color: #333333;
     }
+    #personal:focus {
+      outline: 0;
+      color: #333333;
+      border-color: #333333;
+    }
     #account {
       margin-right: 10px;
       height: 685px;
-      width: 400px;
+      width: 600px;
       font-size: 30px;
       background-color: #99bbff;
       border-color: white;
@@ -62,15 +65,8 @@
       color: #333333;
       border-color: #333333;
     }
-    #security {
-      height: 685px;
-      width: 400px;
-      font-size: 30px;
-      background-color: #99bbff;
-      border-color: white;
-      border-width: medium;
-    }
-    #security:hover {
+    #account:focus {
+      outline: 0;
       color: #333333;
       border-color: #333333;
     }
@@ -104,9 +100,6 @@
     }
   </style>
   <script type="text/javascript">
-    $('.dropdown-toggle').dropdown();
-    $('#dropdown-menu li').on('click', function() {
-      $('#dropdown-list').html($(this).find('a').html());
-    });
+
   </script>
 </html>

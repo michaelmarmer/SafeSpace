@@ -7,12 +7,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome</title>
+    <title>Edit Personal Information</title>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
   </head>
   <body>
     <form action="edit_personal_info_submit.php" method="post" class="form-horizontal" role="form">
@@ -47,7 +50,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" id="confirmpassword">Password Confirm</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="password" name="password" placeholder="enter password">
+          <input type="password" class="form-control" id="password" name="password" placeholder="enter password" data-toggle="password">
         </div>
       </div>
 
@@ -56,9 +59,9 @@
         <button name="update" id="update" class="btn btn-primary">Update</button>
       </div>
 
-      <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+      <div class="text-danger lead text-center" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
       <?php unset($_SESSION['errMsg']); ?>
-      <div class="text-danger lead text-center" style="color:green;" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
+      <div class="text-danger lead text-center" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
       <?php unset($_SESSION['succMsg']); ?>
     </form>
   </body>
@@ -91,40 +94,30 @@
     }
     #firstlabel {
       color: white;
-      font-size: 20px;
-      margin-left: 20px;
-    }
-    #firstname {
-      margin-top: 5px;
-      font-size: 15px;
     }
     #lastlabel {
       color: white;
-      font-size: 20px;
-      margin-left: 20px;
-    }
-    #lastname {
-      margin-top: 5px;
-      font-size: 15px;
     }
     #confirmpassword {
       color: white;
-      font-size: 20px;
-      margin-left: 20px;
-    }
-    #password {
-      margin-top: 5px;
-      font-size: 15px;
     }
     #update {
-      margin-left: 65px;
+      margin-left: 60px;
       background-color: #4d88ff;
       border-color: white;
       border-width: thin;
     }
+    #update:focus {
+      outline: 0;
+    }
     #update:hover {
-      color: #333333;
-      border-color: #333333;
+      border-color:  #333333;
+      color:  #333333;
+    }
+    #update:active {
+      background-color: #4d88ff;
+      border-color: white;
+      color: white;
     }
     #information {
       margin-left: 40px;
@@ -138,12 +131,20 @@
       background-color: white;
       height: .5px;
     }
-
     body {
       background-color: gray;
     }
+    #errMsg {
+      color: red;
+      font-weight: 400;
+    }
+    #succMsg {
+      color: green;
+      font-weight: 400;
+    }
   </style>
   <script type="text/javascript">
+  $("#password").password('toggle');
     $('.dropdown-toggle').dropdown();
     $('#dropdown-menu li').on('click', function() {
       $('#dropdown-list').html($(this).find('a').html());

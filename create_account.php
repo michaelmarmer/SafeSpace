@@ -70,103 +70,15 @@
                   <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="re-enter password" data-toggle="password">
                 </div>
               </div>
-              <hr>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="securityquestion">Security Question 1</label>
-                <ul class="nav nav-pills left">
-                  <li class="dropdown active span8">
-                    <div class="col-sm-8">
-                      <a class="dropdown-toggle form-control" id="securityquestion1" name="securityquestion1" data-toggle="dropdown">
-                        <i class="icon icon-envelope icon-white"></i><span class="pull-left" id="dropdown-one">Select a security question</span><span class="caret"></span></a>
-                        <ul ID="questionlist1" class="dropdown-menu">
-                          <li><a>What is your favorite book?</a></li>
-                          <li><a>What is the name of the road you grew up on?</a></li>
-                          <li><a>What is your mother’s maiden name?</a></li>
-                          <li><a>What was the name of your first pet?</a></li>
-                          <li><a>What was the first company that you worked for?</a></li>
-                          <li><a>Where did you meet your spouse?</a></li>
-                          <li><a>Where did you go to high school?</a></li>
-                          <li><a>What is your favorite food?</a></li>
-                          <li><a>What city were you born in?</a></li>
-                          <li><a>Where is your favorite place to vacation?</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="answer">Answer</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="answer1" name="answer1" placeholder="enter an answer">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="securityquestion">Security Question 2</label>
-                <ul class="nav nav-pills left">
-                  <li class="dropdown active span8">
-                    <div class="col-sm-8">
-                      <a class="dropdown-toggle form-control" id="securityquestion2" name="securityquestion2" data-toggle="dropdown">
-                        <i class="icon icon-envelope icon-white"></i><span class="pull-left" id="dropdown-two">Select a security question</span><span class="caret"></span></a>
-                        <ul ID="questionlist2" class="dropdown-menu">
-                          <li><a>What is your favorite book?</a></li>
-                          <li><a>What is the name of the road you grew up on?</a></li>
-                          <li><a>What is your mother’s maiden name?</a></li>
-                          <li><a>What was the name of your first pet?</a></li>
-                          <li><a>What was the first company that you worked for?</a></li>
-                          <li><a>Where did you meet your spouse?</a></li>
-                          <li><a>Where did you go to high school?</a></li>
-                          <li><a>What is your favorite food?</a></li>
-                          <li><a>What city were you born in?</a></li>
-                          <li><a>Where is your favorite place to vacation?</a></li>
-                        </ul>
-                    </div>
-                    </li>
-                  </ul>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="answer">Answer</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="answer2" name="answer2" placeholder="enter an answer">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="securityquestion">Security Question 3</label>
-                <ul class="nav nav-pills left">
-                  <li class="dropdown active span8">
-                    <div class="col-sm-8">
-                      <a class="dropdown-toggle form-control" id="securityquestion3" name="securityquestion3" data-toggle="dropdown">
-                        <i class="icon icon-envelope icon-white"></i><span class="pull-left" id="dropdown-three">Select a security question</span><span class="caret"></span></a>
-                        <ul ID="questionlist3" class="dropdown-menu">
-                          <li><a>What is your favorite book?</a></li>
-                          <li><a>What is the name of the road you grew up on?</a></li>
-                          <li><a>What is your mother’s maiden name?</a></li>
-                          <li><a>What was the name of your first pet?</a></li>
-                          <li><a>What was the first company that you worked for?</a></li>
-                          <li><a>Where did you meet your spouse?</a></li>
-                          <li><a>Where did you go to high school?</a></li>
-                          <li><a>What is your favorite food?</a></li>
-                          <li><a>What city were you born in?</a></li>
-                          <li><a>Where is your favorite place to vacation?</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-2" for="answer">Answer</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="answer3" name="answer3" placeholder="enter an answer">
-                </div>
-              </div>
               <br>
               <div class="form-group" id="formbuttons">
                 <label></label>
                 <button name="return" id="return" class="btn btn-primary">Back</button>
                 <button name="createaccount" id="createaccount" class="btn btn-primary">Create</button>
               </div>
-              <div class="text-danger lead text-center" style="color:red;" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
+              <div class="text-danger lead text-center" id="errMsg"> <?php if(!empty($_SESSION['errMsg'])) { echo $_SESSION['errMsg']; } ?> </div>
               <?php unset($_SESSION['errMsg']); ?>
-              <div class="text-danger lead text-center" style="color:green;" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
+              <div class="text-danger lead text-center" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
               <?php unset($_SESSION['succMsg']); ?>
             </form>
           </div>
@@ -174,31 +86,15 @@
       </div>
    </body>
    <style media="screen">
-       #securityquestion1 {
-          text-align: right;
-          background-color: white;
-          border-color: gray;
-       }
-       #securityquestion2 {
-          text-align: right;
-          background-color: white;
-          border-color: gray;
-       }
-       #securityquestion3 {
-          text-align: right;
-          background-color: white;
-          border-color: gray;
-       }
-       #caret {
-         color: gray;
-       }
        .modal-backdrop {
          background-image: url('clouds.jpg');
        }
        .modal-content{
          background-color: gray;
-         height: 980px;
-         width: 100% auto;
+         margin-top: 8%;
+         margin-bottom: 8%;
+         margin-left: 10%;
+         margin-right: 10%;
          opacity: 0.65;
        }
       .modal-header {
@@ -211,9 +107,33 @@
         background-color: #4d88ff;
         border-color: white;
       }
+      #createaccount:focus {
+        outline: 0;
+      }
+      #createaccount:hover {
+        border-color:  #333333;
+        color:  #333333;
+      }
+      #createaccount:active {
+        background-color: #4d88ff;
+        border-color: white;
+        color: white;
+      }
       #return {
         background-color: #4d88ff;
         border-color: white;
+      }
+      #return:focus {
+        outline: 0;
+      }
+      #return:hover {
+        border-color:  #333333;
+        color:  #333333;
+      }
+      #return:active {
+        background-color: #4d88ff;
+        border-color: white;
+        color: white;
       }
       .dropdown {
         position: relative;
@@ -237,6 +157,13 @@
         border-color: white;
         margin-top: 2px;
       }
+      #helpbutton:focus {
+        outline: 0;
+      }
+      #helpbutton:active {
+        border-color:  #333333;
+        color:  #333333;
+      }
       #help {
         padding-left: 10px;
         margin-left: 40px;
@@ -244,7 +171,7 @@
         width: 300px;
         background-color: gray;
         color: white;
-        opacity: 0.65;
+        border: 0;
       }
       #help > li > a {
         color: white;
@@ -261,9 +188,16 @@
         height: .5px;
       }
       #formbuttons {
-        margin-left: 65px;
+        margin-left: 18px;
       }
-
+      #errMsg {
+        color: red;
+        font-weight: 400;
+      }
+      #succMsg {
+        color: green;
+        font-weight: 400;
+      }
    </style>
    <script type="text/javascript">
      $('#myModal').modal('show');
@@ -272,21 +206,6 @@
      $('.dropdown-toggle').dropdown();
      $('#help li').on('click', function() {
        $('#dropdown_title').html($(this).find('a').html());
-     });
-
-     $('#securityquestion1').dropdown();
-     $('#questionlist1 li').on('click', function() {
-       $('#dropdown-one').html($(this).find('a').html());
-     });
-
-     $('#securityquestion2').dropdown();
-     $('#questionlist2 li').on('click', function() {
-       $('#dropdown-two').html($(this).find('a').html());
-     });
-
-     $('#securityquestion3').dropdown();
-     $('#questionlist3 li').on('click', function() {
-       $('#dropdown-three').html($(this).find('a').html());
      });
    </script>
  </html>
