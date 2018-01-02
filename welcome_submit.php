@@ -17,11 +17,11 @@ if (isset($_POST['worrydiary'])) {
   echo "<script>window.location.replace('worry_diary.php')</script>";
 }
 if (isset($_POST['journalentry'])) {
-  echo "<script>window.location.replace('joural_entry.php')</script>";
+  echo "<script>window.location.replace('journal_entry.php')</script>";
 }
 
 if (isset($_POST['logout'])) {
-  $_SESSION["loggedin"] = "";
+  $_SESSION["username"] = "";
   session_destroy();
   echo "<script>window.location.replace('index.php')</script>";
 }

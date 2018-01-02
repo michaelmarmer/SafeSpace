@@ -8,11 +8,9 @@
    <head>
      <meta charset="utf-8">
      <title>Account Recovery</title>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
@@ -41,7 +39,7 @@
                 </div>
               </div>
 
-              <div class="form-group" id="buttons">
+              <div class="form-group">
                 <button name="return" id="return" class="btn btn-primary">Back</button>
                 <button name="next" id="next" class="btn btn-primary">Next</button>
               </div>
@@ -78,10 +76,38 @@
         font-size: 16px;
         color: white;
       }
-      #buttons {
-        margin-left: 20px;
+      #return{
         background-color: #4d88ff;
         border-color: white;
+        margin-left: 30px;
+      }
+      #return:focus {
+        outline: 0;
+      }
+      #return:hover {
+        border-color:  #333333;
+        color:  #333333;
+      }
+      #return:active {
+        background-color: #4d88ff;
+        border-color: white;
+        color: white;
+      }
+      #next{
+        background-color: #4d88ff;
+        border-color: white;
+      }
+      #next:focus {
+        outline: 0;
+      }
+      #next:hover {
+        border-color:  #333333;
+        color:  #333333;
+      }
+      #next:active {
+        background-color: #4d88ff;
+        border-color: white;
+        color: white;
       }
       #account {
         color: white;

@@ -52,6 +52,11 @@ $_SESSION['username'];
       color: #333333;
       border-color: #333333;
     }
+    #personal:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
+    }
     #account {
       margin-right: 10px;
       height: 685px;
@@ -70,6 +75,11 @@ $_SESSION['username'];
       color: #333333;
       border-color: #333333;
     }
+    #account:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
+    }
     #menubar {
       background-color: #333333;
       border-color: #333333;
@@ -86,6 +96,9 @@ $_SESSION['username'];
     }
     #return:hover {
       color: white;
+    }
+    #return:active {
+      color: #a6a6a6;
     }
     #editaccount {
       font-size: 20px;

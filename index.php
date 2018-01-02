@@ -7,11 +7,9 @@ session_start();
    <head>
      <meta charset="utf-8">
      <title>SafeSpace</title>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
@@ -26,13 +24,13 @@ session_start();
           <div class="login">
             <form action="index_submit.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
-                <label class="control-label col-sm-1" for="username">Username</label>
+                <label class="control-label col-sm-1" for="username" id="label">Username</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="username" name="username" placeholder="enter username">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-1" for="password">Password</label>
+                <label class="control-label col-sm-1" for="password" id="label">Password</label>
                 <div class="col-sm-4">
                   <input type="password" class="form-control" id="password" name="password" placeholder="enter password" data-toggle="password">
                 </div>
@@ -103,6 +101,9 @@ session_start();
       #succMsg {
         color: green;
         font-weight: 400;
+      }
+      #label {
+        margin-right: 10px;
       }
    </style>
    <script>

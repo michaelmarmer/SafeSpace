@@ -97,12 +97,13 @@
          margin-right: 10%;
          opacity: 0.65;
        }
-      .modal-header {
-        color: white;
-      }
-      .modal-body {
-        color: white;
-      }
+       .modal-body{
+         background-color: #01014d;
+         color: white;
+       }
+       .modal-header{
+         color: #01014d;
+       }
       #createaccount {
         background-color: #4d88ff;
         border-color: white;

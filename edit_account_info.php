@@ -168,6 +168,9 @@ $_SESSION['username'];
     #return:hover {
       color: white;
     }
+    #return:active {
+      color: #a6a6a6;
+    }
     #current-username {
       color: white;
       margin-left: 20px;

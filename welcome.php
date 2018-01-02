@@ -19,7 +19,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="welcome" id="welcome" class="btn btn-primary">Welcome <?php echo $_SESSION['username']; ?></button>
+              <a id="welcome" class="navbar-brand" href="">Welcome <?php echo $_SESSION['username']; ?></a>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <a class="dropdown-toggle form-control" id="dropdown" name="dropdown" data-toggle="dropdown">
@@ -53,6 +53,7 @@
       background-color: #99bbff;
       border-color: white;
       border-width: medium;
+      color: white;
     }
     #calendar:hover {
       color: #333333;
@@ -62,6 +63,11 @@
       outline: 0;
       color: #333333;
       border-color: #333333;
+    }
+    #calendar:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
     }
     #editaccount {
       margin-top: -10px;
@@ -80,6 +86,11 @@
       outline: 0;
       color: #333333;
       border-color: #333333;
+    }
+    #editaccount:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
     }
     #worrydiary {
       margin-top: -10px;
@@ -100,6 +111,11 @@
       color: #333333;
       border-color: #333333;
     }
+    #worrydiary:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
+    }
     #journalentry {
       margin-top: -10px;
       height: 350px;
@@ -118,6 +134,11 @@
       color: #333333;
       border-color: #333333;
     }
+    #journalentry:active {
+      background-color: #99bbff;
+      border-color: white;
+      color: white;
+    }
     #menubar {
       background-color: #333333;
       border-color: #333333;
@@ -135,12 +156,6 @@
     }
     #welcome:hover {
       color: white;
-    }
-    #logout {
-      font-size: 20px;
-      color: #a6a6a6;
-      background-color: #333333;
-      border-color: #333333;
     }
     body {
       background-color: gray;
@@ -168,6 +183,8 @@
       color: white;
       margin-left: 10px;
       font-size: 18px;
+      background-color: #333333;
+      border-color: #333333;
     }
     #logout:hover {
       color: gray;
@@ -176,8 +193,14 @@
       outline: 0;
       border: none;
     }
+    #logout:active {
+      color: white;
+    }
     .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
       background-color: #333333;
+    }
+    #dropdown {
+      margin-top: 2.5px;
     }
   </style>
   <script type="text/javascript">
