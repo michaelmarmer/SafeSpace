@@ -19,7 +19,6 @@ if (isset($_POST['return'])) {
   echo "<script>window.location.replace('edit_account.php')</script>";
 }
 
-//needs update from JEMM
 if (isset($_POST['updateusername'])) {
   if (isset($currentusername)) {
     if (empty($currentusername)) {

@@ -1,6 +1,12 @@
 <?php
   session_start();
   $_SESSION['username'];
+
+  if (!$_SESSION['username']) {
+    echo "<script>window.location.replace('index.php')</script>";
+    $_SESSION['errMsg'] = "Please login";
+  }
+  
  ?>
 
 <!DOCTYPE html>

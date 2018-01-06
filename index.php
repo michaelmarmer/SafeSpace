@@ -1,5 +1,10 @@
 <?php
 session_start();
+$_SESSION['username'];
+
+if ($_SESSION['username']) {
+  echo "<script>window.location.replace('welcome.php')</script>";
+}
  ?>
 
  <!DOCTYPE html>
