@@ -170,5 +170,4 @@ if (isset($_POST['updatepassword'])) {
   echo "<script>window.location.replace('edit_account_info.php')</script>";
 }
 
-
 ?>
