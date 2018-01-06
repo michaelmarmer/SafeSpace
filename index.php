@@ -5,6 +5,7 @@ $_SESSION['username'];
 if ($_SESSION['username']) {
   echo "<script>window.location.replace('welcome.php')</script>";
 }
+
  ?>
 
  <!DOCTYPE html>
