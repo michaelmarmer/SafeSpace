@@ -24,32 +24,32 @@
         <div class="modal-body">
             <form action="create_account_submit.php" method="post" class="form-horizontal" role="form">
               <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Email</label>
+                <label class="control-label col-sm-2" for="email" id="label">Email</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="email" name="email" placeholder="enter email address">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="username">Username</label>
+                <label class="control-label col-sm-2" for="username" id="label">Username</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="username" name="username" placeholder="enter username">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="firstname">First Name</label>
+                <label class="control-label col-sm-2" for="firstname" id="label">First Name</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="firstname" name="firstname" placeholder="enter first name">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Last Name</label>
+                <label class="control-label col-sm-2" for="lastname" id="label">Last Name</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" id="lastname" name="lastname" placeholder="enter last name">
                 </div>
               </div>
               <hr>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="password">Password</label>
+                <label class="control-label col-sm-2" for="password" id="label">Password</label>
                 <div class="col-sm-4">
                   <input type="password" class="form-control" name="password" placeholder="enter password" data-toggle="password">
                 </div>
@@ -65,7 +65,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="confirmpassword">Confirm Password</label>
+                <label class="control-label col-sm-2" for="confirmpassword" id="label">Confirm Password</label>
                 <div class="col-sm-4">
                   <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="re-enter password" data-toggle="password">
                 </div>
@@ -86,24 +86,20 @@
       </div>
    </body>
    <style media="screen">
-       .modal-backdrop {
-         background-image: url('clouds.jpg');
-       }
-       .modal-content{
-         background-color: gray;
-         margin-top: 8%;
-         margin-bottom: 8%;
-         margin-left: 10%;
-         margin-right: 10%;
-         opacity: 0.65;
-       }
-       .modal-body{
-         background-color: #01014d;
-         color: white;
-       }
-       .modal-header{
-         color: #01014d;
-       }
+   .modal-backdrop {
+     background-image: url('clouds.jpg');
+   }
+   .modal-content{
+     background-color: gray;
+     margin-top: 8%;
+     margin-bottom: 8%;
+     margin-left: 10%;
+     margin-right: 10%;
+     opacity: 0.65;
+   }
+   .modal-header {
+     color: white;
+   }
       #createaccount {
         background-color: #4d88ff;
         border-color: white;
@@ -198,6 +194,9 @@
       #succMsg {
         color: green;
         font-weight: 400;
+      }
+      #label {
+        color: white;
       }
    </style>
    <script type="text/javascript">

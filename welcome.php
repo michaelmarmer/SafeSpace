@@ -22,11 +22,15 @@
               <a id="welcome" class="navbar-brand" href="">Welcome <?php echo $_SESSION['username']; ?></a>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <a class="dropdown-toggle form-control" id="dropdown" name="dropdown" data-toggle="dropdown">
-                <i class="icon icon-envelope icon-white"></i><span class="glyphicon glyphicon-align-justify" id="dropdown-menu"></span></a>
-                <ul ID="dropdown-list" class="dropdown-menu">
-                  <li><button name="logout" id="logout" class="btn btn-primary">logout</button></li>
-                </ul>
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a class="dropdown-toggle form-control" id="dropdown" name="dropdown" data-toggle="dropdown">
+                    <i class="icon icon-envelope icon-white"></i><span class="glyphicon glyphicon-align-justify" id="dropdown-menu"></span></a>
+                  <ul class="dropdown-menu" id="dropdown-box">
+                    <li><button name="logout" id="logout"><span class="glyphicon glyphicon-log-out glyphicon-align-justify">logout</span></button></li>
+                  </ul>
+                </li>
+              </ul>
             </ul>
           </div>
         </div>
@@ -37,10 +41,12 @@
       </div>
 
       <div class="form-group">
-        <button name="worrydiary" id="worrydiary" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span><br>Worry Diary</button>
-        <button name="journalentry" id="journalentry" class="btn btn-primary"><span class="glyphicon glyphicon-book"></span><br>Journal Entry</button>
+        <button name="worrydiary" id="worrydiary" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span><br>Worry Diary Log</button>
+        <button name="journalentry" id="journalentry" class="btn btn-primary"><span class="glyphicon glyphicon-book"></span><br>Journal Log</button>
       </div>
     </form>
+
+
   </body>
 
   <style media="screen">
@@ -142,10 +148,12 @@
     #menubar {
       background-color: #333333;
       border-color: #333333;
+      width: 102%;
+      margin-left: -5px;
     }
     #welcome {
       font-size: 20px;
-      color: #a6a6a6;
+      color: white;
       background-color: #333333;
       border-color: #333333;
       margin-top: 3px;
@@ -164,30 +172,33 @@
       background-color: #333333;
       color: #a6a6a6;
       font-size: 20px;
-      margin-top: 6px;
+      margin-top: 10px;
       margin-right: 20px;
     }
     #dropdown-menu:hover {
       color: white;
     }
+    #dropdown-box {
+      margin-top: 29px;
+      background-color: white;
+      border: 0;
+    }
     #dropdown {
       background-color: #333333;
       border-color: #333333;
-    }
-    #dropdown-list {
-      background-color: #333333;
-      border-color: #333333;
-      margin-top: 1.8px;
+      margin-top: -10px;
     }
     #logout {
-      color: white;
-      margin-left: 10px;
-      font-size: 18px;
-      background-color: #333333;
-      border-color: #333333;
+      color: #333333;
+      font-size: 17px;
+      background-color: white;
+      border-color: white;
+      width: 100%;
     }
     #logout:hover {
-      color: gray;
+      color: white;
+      background-color: #333333;
+      border-color: #333333;
     }
     #logout:focus {
       outline: 0;
@@ -196,17 +207,8 @@
     #logout:active {
       color: white;
     }
-    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-      background-color: #333333;
-    }
-    #dropdown {
-      margin-top: 2.5px;
-    }
   </style>
   <script type="text/javascript">
-    $('.dropdown-toggle').dropdown();
-    $('#dropdown-menu li').on('click', function() {
-      $('#dropdown-list').html($(this).find('a').html());
-    });
+
   </script>
 </html>

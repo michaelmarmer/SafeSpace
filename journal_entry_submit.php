@@ -10,10 +10,9 @@ $dates = $_POST["dates"];
 $entry = $_POST["entry"];
 
 if (isset($_POST['return'])) {
-  echo "<script>window.location.replace('welcome.php')</script>";
+  echo "<script>window.location.replace('journal_log.php')</script>";
 }
 
-//functions dont exist in yes post, need to find a way to store it first
 if (isset($_POST['addentry'])) {
   if (isset($title)) {
     if (empty($title)) {
@@ -27,7 +26,7 @@ if (isset($_POST['addentry'])) {
             if (empty($entry)) {
               $_SESSION['errMsg'] = "Please enter an entry in the textbox provided";
             } else {
-              $sql = "SELECT username FROM create_account WHERE username = $username";
+              $sql = "SELECT username FROM create_account WHERE username='".$username."'";
               $query = mysqli_query($conn,$sql);
               if ($query) {
                 $sql = "INSERT INTO journal_entry (username, journal_title, dates, entry)
@@ -35,6 +34,7 @@ if (isset($_POST['addentry'])) {
                 $query = mysqli_query($conn,$sql);
                  if ($query) {
                    $_SESSION['succMsg'] = "Success! Entry Added";
+                   echo "<script>window.location.replace('journal_log.php')</script>";
                  } else {
                    $_SESSION['errMsg'] = "Failed to add entry";
                  }
