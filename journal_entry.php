@@ -24,6 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="form-horizontal" role="form">
@@ -32,7 +33,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="return" id="return" class="btn btn-primary navbar-brand"><</button>
+              <button name="return" id="return" class="btn btn-primary navbar-brand"><i class="fa fa-arrow-circle-left"></i></button>
               <a class="navbar-brand" id="header">Journal Entry</a>
             </ul>
           </div>
@@ -95,6 +96,7 @@
       color: #a6a6a6;
       background-color: #333333;
       border-color: #333333;
+      margin-left: -10px;
     }
     #return:focus {
       outline: 0;

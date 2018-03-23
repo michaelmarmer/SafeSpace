@@ -6,7 +6,7 @@
     echo "<script>window.location.replace('index.php')</script>";
     $_SESSION['errMsg'] = "Please login";
   }
-  
+
  ?>
 
 <!DOCTYPE html>
@@ -25,6 +25,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="form-horizontal" role="form">
@@ -33,7 +34,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="return" id="return" class="btn btn-primary navbar-brand"><</button>
+              <button name="return" id="return" class="btn btn-primary navbar-brand"><i class="fa fa-arrow-circle-left"></i></button>
               <a class="navbar-brand" id="header">Worry Diary Entry</a>
             </ul>
           </div>
@@ -47,8 +48,8 @@
    <div id="add_fields">
        <div>
         <div class="content">
-          <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-          <input type="button" class="btn btn-primary" id="more_fields" onclick="add_fields();" value="Add More"/>
+          <input type="text" class="form-control" id="text" name="worrying_thoughts" placeholder="List thoughts" value=<?php if(!empty($_SESSION['worrying_thoughts'])) { echo $_SESSION['worrying_thoughts']; } ?>>
+          <input type="button" class="btn btn-primary" id="text_button" onclick="add_fields();" value="Add More"/>
         </div>
        </div>
     </div>
@@ -60,16 +61,14 @@
         <div class="content">
             <table id="table">
               <tr>
-                <th><label id="table_header">What are you predicting will happen?</label></th>
+                <th><label id="label">What are you predicting will happen?</label></th>
                 <th>&nbsp &nbsp</th>
-                <th><label id="table_header">On a Scale 1-10, how likely do you think this will happen?<br>(1 being the lowest and 10 being the highest)</label></th>
+                <th><label id="label">On a Scale 1-10, how likely do you think this will happen?<br>(1 being the lowest and 10 being the highest)</label></th>
               </tr>
               <tr>
-                <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td>
+                <td><input type="text" class="form-control" id="text" name="prediction" placeholder="Write what you think will happen" value=<?php if(!empty($_SESSION['prediction'])) { echo $_SESSION['prediction']; } ?>></td>
                 <td>&nbsp &nbsp</td>
-                <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td>
-                <td>&nbsp &nbsp</td>
-                <td><input type="button" class="btn btn-primary" id="more_fields" onclick="add_table_fields();" value="Add More"/></td>
+                <td><input type="text" class="form-control" id="scale" name="prediction_scale" placeholder="Write Number" value=<?php if(!empty($_SESSION['prediction_scale'])) { echo $_SESSION['prediction_scale']; } ?>> <input type="button" class="btn btn-primary" id="text_button" onclick="add_table_fields();" value="Add More"/></td>
               </tr>
             </table>
           </div>
@@ -83,16 +82,14 @@
         <div class="content">
             <table id="table">
               <tr>
-                <th><label id="table_header">What emotions are you feeling?</label></th>
+                <th><label id="label">What emotions are you feeling?</label></th>
                 <th>&nbsp &nbsp</th>
-                <th><label id="table_header">On a Scale 1-10, rate the intensity<br>(1 being the lowest and 10 being the highest)</label></th>
+                <th><label id="label">On a Scale 1-10, rate the intensity<br>(1 being the lowest and 10 being the highest)</label></th>
               </tr>
               <tr>
-                <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td>
+                <td><input type="text" class="form-control" id="text" name="emotion" placeholder="Write out each emotion" value=<?php if(!empty($_SESSION['emotion'])) { echo $_SESSION['emotion']; } ?>></td>
                 <td>&nbsp &nbsp</td>
-                <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td>
-                <td>&nbsp &nbsp</td>
-                <td><input type="button" class="btn btn-primary" id="more_fields" onclick="emotion_table_fields();" value="Add More"/></td>
+                <td><input type="text" class="form-control" id="scale" name="emotion_scale" placeholder="Write Number" value=<?php if(!empty($_SESSION['emotion_scale'])) { echo $_SESSION['emotion_scale']; } ?>> <input type="button" class="btn btn-primary" id="text_button" onclick="emotion_table_fields();" value="Add More"/></td>
               </tr>
             </table>
           </div>
@@ -106,8 +103,8 @@
      <div id="pro_add_fields">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="pro_add_fields();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="evidence_for" placeholder="Write your proof of prediction here" value=<?php if(!empty($_SESSION['evidence_for'])) { echo $_SESSION['evidence_for']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="pro_add_fields();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -119,8 +116,8 @@
      <div id="con_add_fields">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="con_add_fields();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="evidence_against" placeholder="Write the things against your prediciton" value=<?php if(!empty($_SESSION['evidence_against'])) { echo $_SESSION['evidence_against']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="con_add_fields();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -133,7 +130,7 @@
       <br>
        <div>
         <div class="content">
-          <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
+          <input type="text" class="form-control" id="scale" name="worry_prediction_scale" placeholder="Write Number" value=<?php if(!empty($_SESSION['worry_prediction_scale'])) { echo $_SESSION['worry_prediction_scale']; } ?>>
         </div>
        </div>
     </div>
@@ -144,8 +141,8 @@
      <div id="add_worst_fields">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="add_worst_fields();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="worst_case" placeholder="Write the worst case scenarios" value=<?php if(!empty($_SESSION['worst_case'])) { echo $_SESSION['worst_case']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="add_worst_fields();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -157,8 +154,8 @@
      <div id="add_best_fields">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="add_best_fields();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="best_case" placeholder="Write the best case scenarios" value=<?php if(!empty($_SESSION['best_case'])) { echo $_SESSION['best_case']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="add_best_fields();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -169,7 +166,7 @@
       <br>
        <div>
         <div class="content">
-          <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
+          <input type="text" class="form-control" id="text" name="most_likely_to_happen" placeholder="Write the reality of the situation" value=<?php if(!empty($_SESSION['most_likely_to_happen'])) { echo $_SESSION['most_likely_to_happen']; } ?>>
         </div>
        </div>
     </div>
@@ -179,7 +176,7 @@
       <br>
        <div>
         <div class="content">
-          <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
+          <input type="text" class="form-control" id="text" name="helpful_worry" placeholder="Write how helpful your worry is about the situation" value=<?php if(!empty($_SESSION['helpful_worry'])) { echo $_SESSION['helpful_worry']; } ?>>
         </div>
        </div>
     </div>
@@ -190,8 +187,8 @@
      <div id="worst_case_scenario">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="worst_case_scenario();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="cope_with_worst" placeholder="Write examples of what you can do to cope" value=<?php if(!empty($_SESSION['cope_with_worst'])) { echo $_SESSION['cope_with_worst']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="worst_case_scenario();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -203,8 +200,8 @@
      <div id="different_viewpoint">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="different_viewpoint();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="new_viewpoint" placeholder="Write other ways to view the situation" value=<?php if(!empty($_SESSION['new_viewpoint'])) { echo $_SESSION['new_viewpoint']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="different_viewpoint();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -216,8 +213,8 @@
      <div id="replace_thought">
          <div>
           <div class="content">
-            <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
-            <input type="button" class="btn btn-primary" id="more_fields" onclick="replace_thought();" value="Add More"/>
+            <input type="text" class="form-control" id="text" name="helpful_thoughts" placeholder="Write positive examples on how to view the situation" value=<?php if(!empty($_SESSION['helpful_thoughts'])) { echo $_SESSION['helpful_thoughts']; } ?>>
+            <input type="button" class="btn btn-primary" id="text_button" onclick="replace_thought();" value="Add More"/>
           </div>
          </div>
       </div>
@@ -229,7 +226,7 @@
       <label class="control-label" id="label">(1 being the lowest and 10 being the highest)</label>
        <div>
         <div class="content">
-          <input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts">
+          <input type="text" class="form-control" id="scale" name="new_prediction_scale" placeholder="Write Number" value=<?php if(!empty($_SESSION['new_prediction_scale'])) { echo $_SESSION['new_prediction_scale']; } ?>>
         </div>
        </div>
     </div>
@@ -240,16 +237,14 @@
           <div class="content">
               <table id="table">
                 <tr>
-                  <th><label id="table_header">How intense are my emotions now?</label></th>
+                  <th><label id="label">How intense are my emotions now?</label></th>
                   <th>&nbsp &nbsp</th>
-                  <th><label id="table_header">On a Scale 1-10, rate the intensity<br>(1 being the lowest and 10 being the highest)</label></th>
+                  <th><label id="label">On a Scale 1-10, rate the intensity<br>(1 being the lowest and 10 being the highest)</label></th>
                 </tr>
                 <tr>
-                  <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td>
+                  <td><input type="text" class="form-control" id="text" name="new_emotion" placeholder="Write out each emotion" value=<?php if(!empty($_SESSION['new_emotion'])) { echo $_SESSION['new_emotion']; } ?>></td>
                   <td>&nbsp &nbsp</td>
-                  <td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td>
-                  <td>&nbsp &nbsp</td>
-                  <td><input type="button" class="btn btn-primary" id="more_fields" onclick="new_emotion_table();" value="Add More"/></td>
+                  <td><input type="text" class="form-control" id="scale" name="new_emotion_scale" placeholder="Write Number" value=<?php if(!empty($_SESSION['new_emotion_scale'])) { echo $_SESSION['new_emotion_scale']; } ?>> <input type="button" class="btn btn-primary" id="text_button" onclick="new_emotion_table();" value="Add More"/></td>
                 </tr>
               </table>
             </div>
@@ -284,6 +279,7 @@
       color: #a6a6a6;
       background-color: #333333;
       border-color: #333333;
+      margin-left: -10px;
     }
     #return:focus {
       outline: 0;
@@ -303,9 +299,19 @@
       margin-top: 3px;
       margin-left: 15px;
     }
-    #thoughts {
+    #label {
+      color: white;
+      margin-bottom: 2px;
+    }
+    #text {
       width: 500px;
       display: inline-block;
+      margin-bottom: 3px;
+    }
+    #scale {
+      width: 150px;
+      display: inline-block;
+      margin-bottom: 3px;
     }
     #page_information {
       margin-left: 40px;
@@ -327,7 +333,25 @@
       border-color: white;
       color: white;
     }
-
+    #text_button {
+      margin-top: -5px;
+      margin-left: 5px;
+      background-color: #4d88ff;
+      border-color: white;
+      border-width: thin;
+    }
+    #text_button:focus {
+      outline: 0;
+    }
+    #text_button:hover {
+      border-color:  #333333;
+      color:  #333333;
+    }
+    #text_button:active {
+      background-color: #4d88ff;
+      border-color: white;
+      color: white;
+    }
     #errMsg {
       color: red;
       font-weight: 400;
@@ -336,87 +360,143 @@
       color: green;
       font-weight: 400;
     }
+    #remove {
+      color: #a6a6a6;
+      background-color: gray;
+      border-color: gray;
+    }
+    #remove:focus {
+      outline: 0;
+    }
+    #remove:hover {
+      color:  white;
+    }
 
   </style>
   <script type="text/javascript">
   function add_fields() {
-    var objTo = document.getElementById('add_fields')
+    var objTo = document.getElementById('add_fields');
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
-    objTo.appendChild(divtest)
+    divtest.innerHTML = '<div id="child_add_fields"><input type="text" class="form-control" id="text" name="worrying_thoughts" placeholder="List thoughts"><button class="btn btn-primary" id="remove" onclick="removeDiv_add_fields(); return false;">X</button><br><div>';
+    objTo.appendChild(divtest);
+  }
+
+//need more of these and need to fix divtest.innerHTML divs
+  function removeDiv_add_fields() {
+     $("#child_add_fields").remove();
   }
 
   function add_table_fields() {
     var objTo = document.getElementById('add_table_fields')
     var divtest = document.createElement("div");
     divtest.innerHTML =
-    '<table><tr><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td></tr></table>';
+    '<div id="child_add_table_fields"><table><tr><td><input type="text" class="form-control" id="text" name="prediction" placeholder="Write what you think will happen"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="scale" name="prediction_scale" placeholder="Write Number"><button class="btn btn-primary" id="remove" onclick="removeDiv_add_table_fields(); return false;">X</button></td></tr></table></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_add_table_fields() {
+     $("#child_add_table_fields").remove();
   }
 
   function emotion_table_fields() {
     var objTo = document.getElementById('emotion_table_fields')
     var divtest = document.createElement("div");
     divtest.innerHTML =
-    '<table><tr><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td></tr></table>';
+    '<div id="child_emotion_table_fields"><table><tr><td><input type="text" class="form-control" id="text" name="emotion" placeholder="Write out each emotion"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="scale" name="emotion_scale" placeholder="Write Number"><button class="btn btn-primary" id="remove" onclick="removeDiv_emotion_table_fields(); return false;">X</button></td></tr></table></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_emotion_table_fields() {
+     $("#child_emotion_table_fields").remove();
   }
 
   function pro_add_fields() {
     var objTo = document.getElementById('pro_add_fields')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_pro_add_fields"><input type="text" class="form-control" id="text" name="evidence_for" placeholder="Write your proof of prediction here"><button class="btn btn-primary" id="remove" onclick="removeDiv_pro_add_fields(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_pro_add_fields() {
+     $("#child_pro_add_fields").remove();
   }
 
   function con_add_fields() {
     var objTo = document.getElementById('con_add_fields')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_con_add_fields"><input type="text" class="form-control" id="text" name="evidence_against" placeholder="Write the things against your prediciton"><button class="btn btn-primary" id="remove" onclick="removeDiv_con_add_fields(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_con_add_fields() {
+     $("#child_con_add_fields").remove();
   }
 
   function add_worst_fields() {
     var objTo = document.getElementById('add_worst_fields')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_add_worst_fields"><input type="text" class="form-control" id="text" name="worst_case" placeholder="Write the worst case scenarios"><button class="btn btn-primary" id="remove" onclick="removeDiv_add_worst_fields(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_add_worst_fields() {
+     $("#child_add_worst_fields").remove();
   }
 
   function add_best_fields() {
     var objTo = document.getElementById('add_best_fields')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_add_best_fields"><input type="text" class="form-control" id="text" name="best_case" placeholder="Write the best case scenarios"><button class="btn btn-primary" id="remove" onclick="removeDiv_add_best_fields(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_add_best_fields() {
+     $("#child_add_best_fields").remove();
   }
 
   function worst_case_scenario() {
     var objTo = document.getElementById('worst_case_scenario')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_worst_case_scenario"><input type="text" class="form-control" id="text" name="cope_with_worst" placeholder="Write examples of what you can do to cope"><button class="btn btn-primary" id="remove" onclick="removeDiv_worst_case_scenario(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_worst_case_scenario() {
+     $("#child_worst_case_scenario").remove();
   }
 
   function different_viewpoint() {
     var objTo = document.getElementById('different_viewpoint')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_different_viewpoint"><input type="text" class="form-control" id="text" name="new_viewpoint" placeholder="Write other ways to view the situation"><button class="btn btn-primary" id="remove" onclick="removeDiv_different_viewpoint(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_different_viewpoint() {
+     $("#child_different_viewpoint").remove();
   }
 
   function replace_thought() {
     var objTo = document.getElementById('replace_thought')
     var divtest = document.createElement("div");
-    divtest.innerHTML = '<input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="List thoughts"><br>';
+    divtest.innerHTML = '<div id="child_replace_thought"><input type="text" class="form-control" id="text" name="helpful_thoughts" placeholder="Write positive examples on how to view the situation"><button class="btn btn-primary" id="remove" onclick="removeDiv_replace_thought(); return false;">X</button><br></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_replace_thought() {
+     $("#child_replace_thought").remove();
   }
 
   function new_emotion_table() {
     var objTo = document.getElementById('new_emotion_table')
     var divtest = document.createElement("div");
     divtest.innerHTML =
-    '<table><tr><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write what you think will happen"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="thoughts" name="thoughts" placeholder="Write Percentage Number"></td></tr></table>';
+    '<div id="child_new_emotion_table"><table><tr><td><input type="text" class="form-control" id="text" name="new_emotion" placeholder="Write out each emotion"></td><td>&nbsp &nbsp</td><td><input type="text" class="form-control" id="scale" name="new_emotion_scale" placeholder="Write Number"><button class="btn btn-primary" id="remove" onclick="removeDiv_new_emotion_table(); return false;">X</button></td></tr></table></div>';
     objTo.appendChild(divtest)
+  }
+
+  function removeDiv_new_emotion_table() {
+     $("#child_new_emotion_table").remove();
   }
   </script>
 </html>

@@ -17,12 +17,13 @@ if (!$_SESSION['username']) {
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <title>Worry Diary Log</title>
  </head>
  <body>
    <nav class="navbar navbar-default" id="menubar">
      <form action="worry_diary_log_submit.php" method="post" class="form-horizontal navbar-form navbar-left" role="form">
-       <button name="return" id="return" class="btn btn-primary navbar-brand"><</button>
+       <button name="return" id="return" class="btn btn-primary navbar-brand"><i class="fa fa-arrow-circle-left"></i></button>
        <a class="navbar-brand" id="worrydiarylog" >Worry Diary Log</a>
        <div class="input-group" id="search">
          <input type="text" class="form-control" placeholder="Search">
@@ -35,6 +36,45 @@ if (!$_SESSION['username']) {
        <button name="newentry" id="newentry" class="btn btn-primary">New Entry</button>
      </form>
    </nav>
+
+  <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col" >#</th>
+      <th scope="col">Last Saved</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr>
+      <td id="width"><?php
+        include 'database_connection.php';
+        $sql = "SELECT worry_diary_id FROM worry_diary_entry WHERE username='".$_SESSION['username']."'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $index = 1;
+            while($row = $result->fetch_assoc()) {
+              $worry_diary_entry = $row["worry_diary_id"];
+              echo "<a name='worry_diary_entry' id='worry_diary_entry' onclick='newPage(\"$worry_diary_entry\")'>Worry Diary Entry ".$index."</a><br>";
+              //storing session issue here
+              $index = $index + 1;
+            }
+        }
+       ?></td>
+       <td><?php
+         include 'database_connection.php';
+         $sql = "SELECT dates FROM worry_diary_entry WHERE username='".$_SESSION['username']."'";
+         $result = $conn->query($sql);
+         if ($result->num_rows > 0) {
+             while($row = $result->fetch_assoc()) {
+               $timestamp = $row["dates"];
+               echo "<p id='date'>".$timestamp."</p>";
+               //storing session issue here
+             }
+         }
+        ?></td>
+    </tr>
+  </tbody>
+</table>
 
    <div class="text-danger lead text-center" style="color:green;" id="succMsg"> <?php if(!empty($_SESSION['succMsg'])) { echo $_SESSION['succMsg']; } ?> </div>
    <?php unset($_SESSION['succMsg']); ?>
@@ -54,10 +94,11 @@ if (!$_SESSION['username']) {
       color: white;
     }
     #return {
-      font-size: 20px;
+      font-size: 25px;
       color: #a6a6a6;
       background-color: #333333;
       border-color: #333333;
+      margin-left: -10px;
     }
     #return:focus {
       outline: 0;
@@ -92,5 +133,29 @@ if (!$_SESSION['username']) {
       border-color: white;
       color: white;
     }
+
+    #date {
+      color: white;
+      margin-bottom: -2px;
+    }
+
+    #worry_diary_entry {
+      color: white;
+      cursor: pointer;
+      margin-bottom: -2px;
+    }
+
+    table {
+      margin-top: 30px;
+      border-color: white;
+      color: #4d88ff;
+      background-color: black;
+      font-size: 18px;
+    }
+
+    #width {
+      width: 45%;
+    }
+
  </style>
 </html>

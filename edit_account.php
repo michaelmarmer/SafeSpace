@@ -18,6 +18,7 @@ if (!$_SESSION['username']) {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <form action="edit_account_submit.php" method="post" class="form-horizontal" role="form">
@@ -25,7 +26,7 @@ if (!$_SESSION['username']) {
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="return" id="return" class="btn btn-primary navbar-brand"><</button>
+              <button name="return" id="return" class="btn btn-primary navbar-brand"><i class="fa fa-arrow-circle-left"></i></button>
               <a class="navbar-brand" id="editaccount">Edit Account</a>
             </ul>
           </div>
@@ -95,6 +96,7 @@ if (!$_SESSION['username']) {
       color: #a6a6a6;
       background-color: #333333;
       border-color: #333333;
+      margin-left: -10px;
     }
     #return:focus {
       outline: 0;

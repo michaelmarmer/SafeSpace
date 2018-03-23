@@ -21,6 +21,7 @@ if (!$_SESSION['username']) {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <form action="edit_account_info_submit.php" method="post" class="form-horizontal" role="form">
@@ -28,7 +29,7 @@ if (!$_SESSION['username']) {
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-left">
-              <button name="return" id="return" class="btn btn-primary navbar-brand"><</button>
+              <button name="return" id="return" class="btn btn-primary navbar-brand"><i class="fa fa-arrow-circle-left"></i></button>
               <a class="navbar-brand" id="editaccount">Edit Account Information</a>
             </ul>
           </div>
@@ -135,6 +136,7 @@ if (!$_SESSION['username']) {
             </ul>
       </div>
 
+
       <div class="form-group">
         <label class="control-label col-sm-2" id="confirmpassword">Password Confirm</label>
         <div class="col-sm-3">
@@ -165,6 +167,7 @@ if (!$_SESSION['username']) {
       color: #a6a6a6;
       background-color: #333333;
       border-color: #333333;
+      margin-left: -10px;
     }
     #return:focus {
       outline: 0;
